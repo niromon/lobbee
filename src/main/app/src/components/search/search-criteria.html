@@ -1,0 +1,83 @@
+<ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+        <div class="collapsible-header active"><i class="material-icons">event_note</i>Catégorie</div>
+        <div class="collapsible-body filter-container">
+            <form action="#">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h6><b>Alimentation</h6></b></h6></li>
+                    <li class="collection-item"><div>Yahourt</div></li>
+                    <li class="collection-item"><div>Tomate</div></li>
+                </ul>
+                <p><a href="#"><b>Entrer un produit</b><i class="material-icons tiny">add</i></a></p>
+            </form>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">pin_drop</i>Localisation</div>
+        <div class="collapsible-body">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">sort</i>Trier par</div>
+        <div class="collapsible-body filter-container">
+            <ul>
+                <li>
+                    <input type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="notes" checked="checked" value="social" />
+                    <label for="notes">Notes</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="event-type-filter" class="event-type-filter  filled-in" id="kms" checked="checked" value="class" />
+                    <label for="kms">Distance à parcourir</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="nb_places_to_visit" checked="checked" value="festival" />
+                    <label for="nb_places_to_visit">Nombre de lieux à visiter</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="price" checked="checked" value="festival" />
+                    <label for="price">Prix</label>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">local_activity</i>Filtres</div>
+        <div class="collapsible-body">
+            <ul>
+                <li>
+                    <input type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="health" checked="checked" value="social" />
+                    <label for="health">Santé</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="environment" checked="checked" value="social" />
+                    <label for="environment">Environnement</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="social" checked="checked" value="social" />
+                    <label for="social">Social</label>
+                </li>
+            </ul>
+            <p class="range-field">
+                <label>Notes lieux</label>
+                <input type="range" id="place_rate" min="0" max="10" />
+            </p>
+            <p class="range-field">
+                <label>Notes produit</label>
+                <input type="range" id="product_rate" min="0" max="10" />
+            </p>
+        </div>
+    </li>
+    <li class="center-align">
+        <a class="btn waves-effect waves-light btn-large" href="result-list.html">
+            Je valide ma liste
+            <i class="material-icons right">send</i>
+        </a>
+    </li>
+</ul>
