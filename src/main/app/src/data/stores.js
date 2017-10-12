@@ -1,4 +1,4 @@
 export const stores = [
-    {name: 'Magasin A'},
-    {name: 'Magasin B'}
+    {id: 1, name: 'Magasin A', rate: 5},
+    {id: 2, name: 'Magasin B', rate: 4}
 ];

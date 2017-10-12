@@ -7,6 +7,7 @@ import CategoryCriteria from "./CategoryCriteria";
 import LocationCriteria from "./LocationCriteria";
 import FilterCriteria from "./FilterCriteria";
 import * as _ from "lodash";
+import SearchResult from "./SearchResult";
 
 const propTypes = {
     search: PropTypes.func,
@@ -29,12 +30,20 @@ function SearchCriteria({search, query, results}) {
                         </button>
                     </li>
                 </ul>
-                {!_.isUndefined(results) && results.length > 0 ? (
-                    <div>
-                        <ul>{results.map((result) => <li key={result.name}>{result.name}</li>)}</ul>
-                    </div>
-                ) : _.isUndefined(results) ? '' : <div>No results found.</div>}
             </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        {!_.isUndefined(results) && results.length > 0 ? (
+                            <div id="card-container" class="row">
+                                {results.map((result) => <div class="col s12 m6 l4"><SearchResult item={result}/></div>)}
+                            </div>
+                        ) : _.isUndefined(results) ? '' : <div>No results found.</div>}
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 }
