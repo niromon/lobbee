@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <h4>Détail des courses</h4>
+        <p class="grey-text text-darken-4">
+          <i class="small material-icons">room</i> <a href="#">{{result.store.name}}</a> - {{result.distance}}
+          <rating [stars]="result.store.rate"></rating>
+        </p>
+        <div class="grey-text text-darken-2">
+            <table>
+                <tbody>
+                <tr *ngFor="let product of result.products">
+                    <td>{{product.product.name}}</td>
+                    <td>
+                        <rating [stars]="product.rate"></rating>
+                    </td>
+                    <td>{{ product.price }} &euro;</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="blue-text">
+            <ul>
+                <li>
+                    <label>Notes :</label>
+                    <rating [stars]="result.summary.rate"></rating>
+                </li>
+                <li><label>Prix :</label>
+                    {{result.summary.price}} &euro;
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,26 @@
+<ul>
+    <li>
+        <input [checked]="store.state.filters['notes']"
+               (change)="toogle('notes', !store.state.filters['notes'])"
+               type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="notes"  />
+        <label for="notes">Notes</label>
+    </li>
+    <li>
+        <input [checked]="store.state.filters['kms']"
+               (change)="toogle('kms', !store.state.filters['kms'])"
+               type="checkbox" name="event-type-filter" class="event-type-filter  filled-in" id="kms"  />
+        <label for="kms">Distance à parcourir</label>
+    </li>
+    <li>
+        <input [checked]="store.state.filters['nb_places_to_visit']"
+               (change)="toogle('nb_places_to_visit', !store.state.filters['nb_places_to_visit'])"
+                type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="nb_places_to_visit"   />
+        <label for="nb_places_to_visit">Nombre de lieux à visiter</label>
+    </li>
+    <li>
+        <input [checked]="store.state.filters['price']"
+               (change)="toogle('price', !store.state.filters['price'])"
+               type="checkbox" name="event-type-filter" class="event-type-filter filled-in" id="price"  />
+        <label for="price">Prix</label>
+    </li>
+</ul>

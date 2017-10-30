@@ -1,0 +1,17 @@
+<ul class="collection with-header">
+    <li>
+        <form (ngSubmit)="addProduct(localState.value)">
+            <ng2-completer name="productName"
+                           [(ngModel)]="localState.value"
+                           [datasource]="productSource"
+                           [minSearchLength]="0"
+                           [placeholder]="localState.placeholder">
+            </ng2-completer>
+            <!--<button>Ajouter un produit</button>-->
+        </form>
+    </li>
+    <li class="collection-header"><h6><b>???</b></h6></li>
+    <li *ngFor="let product of store.state.products" class="collection-item">
+        <div>{{ product.name }}</div>
+    </li>
+</ul>
