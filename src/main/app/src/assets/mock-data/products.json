@@ -1,7 +1,4 @@
-{
-    "products" : [
-        {"id": 1, "name": "Yahourt", "category": 1},
-        {"id": 2, "name": "Tomates", "category": 1}
-    ],
-    "categories" : [{"id": 1, "name": "Alimentation"}]
-}
+[
+    {"id": 1, "name": "Yahourt", "category": 1},
+    {"id": 2, "name": "Tomates", "category": 1}
+]
