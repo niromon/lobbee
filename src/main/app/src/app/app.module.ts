@@ -31,6 +31,7 @@ import {DataService} from "./data/data.service";
 import {FilterComponent} from "./search/filter.component";
 import {LocationComponent} from "./search/location.component";
 import {SharedModule} from "./common/shared.module";
+import {AdminModule} from "./admin";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -65,6 +66,7 @@ type StoreType = {
      * Import Angular's modules.
      */
     imports: [
+        AdminModule,
         SharedModule,
         BrowserModule,
         MaterializeModule,

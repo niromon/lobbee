@@ -72,3 +72,4 @@ dll/
 *.ngsummary.json
 *.shim.ngstyle.ts
 /lobbee-angular.iml
+/dist/
