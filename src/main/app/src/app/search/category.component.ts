@@ -25,7 +25,7 @@ export class CategoryComponent implements OnInit {
         private data: DataService,
         private completerService: CompleterService
     ) {
-        this.data.loadAsyncProducts()
+        this.data.findAllEager('product')
             .subscribe(o => {
                 this.productSource = this.completerService.local(o, 'name', 'name');
             });

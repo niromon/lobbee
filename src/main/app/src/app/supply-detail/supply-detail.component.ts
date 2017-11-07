@@ -13,8 +13,6 @@ import * as _ from "lodash";
  * see https://github.com/gdi2290/es6-promise-loader for more info
  */
 
-console.log('`Detail` component loaded asynchronously');
-
 @Component({
   selector: 'supply-detail',
   templateUrl: `./supply-detail.component.html`,

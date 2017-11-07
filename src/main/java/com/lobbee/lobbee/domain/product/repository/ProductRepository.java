@@ -1,6 +1,6 @@
-package com.lobbee.lobbee.repository;
+package com.lobbee.lobbee.domain.product.repository;
 
-import com.lobbee.lobbee.entity.Product;
+import com.lobbee.lobbee.domain.product.Product;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;

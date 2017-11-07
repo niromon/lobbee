@@ -7,11 +7,10 @@
                            [minSearchLength]="0"
                            [placeholder]="localState.placeholder">
             </ng2-completer>
-            <!--<button>Ajouter un produit</button>-->
         </form>
     </li>
     <li class="collection-header"><h6><b>???</b></h6></li>
     <li *ngFor="let product of store.state.products" class="collection-item">
-        <div>{{ product.name }}</div>
+        <div>{{ product.name }} <span class="teal-text">{{product.category.name}}</span></div>
     </li>
 </ul>

@@ -6,7 +6,11 @@ export class LobbeeStore {
 export class Product {
     id: number;
     name: string;
-    category: number
+    category: Category;
+
+    public static  getProperties() {
+        return ['id', 'name', 'category'];
+    }
 }
 export class Filter {
     name: string;
@@ -15,6 +19,9 @@ export class Filter {
 export class Category {
     id: number;
     name: string;
+    public static getProperties() {
+        return ['id', 'name'];
+    }
 }
 
 export class ProductResult {

@@ -20,7 +20,6 @@ import {CategoryComponent} from './search';
 import {NoContentComponent} from './no-content';
 import {XLargeDirective} from './home/x-large';
 import 'materialize-css';
-import {MaterializeModule} from 'angular2-materialize';
 import '../styles/styles.scss';
 import {HttpClientModule} from "@angular/common/http";
 import {Store} from "./store";
@@ -32,6 +31,7 @@ import {FilterComponent} from "./search/filter.component";
 import {LocationComponent} from "./search/location.component";
 import {SharedModule} from "./common/shared.module";
 import {AdminModule} from "./admin";
+import {MaterializeModule} from "ng2-materialize";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -69,7 +69,7 @@ type StoreType = {
         AdminModule,
         SharedModule,
         BrowserModule,
-        MaterializeModule,
+        MaterializeModule.forRoot(),
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
