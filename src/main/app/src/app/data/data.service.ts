@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import {Category, Product, Query, Result} from "../models";
+import {Category, LobbeeStore, Product, Query, Result} from "../models";
 import {Observable} from "rxjs/Observable";
 import * as _ from 'lodash';
 
@@ -40,6 +40,13 @@ export class DataService {
             });
     }
 
+    public findAllProductEager() : Observable<Product[]> {
+        return this.http.get(baseApiUrl + 'product?projection=eager')
+            .map((data: any) => {
+                return data._embedded['product'];
+            });
+    }
+
     public save(type: string, item) {
         if (_.isUndefined(item.id)) {
             return this.http.post(baseApiUrl + type, item);
@@ -61,6 +68,9 @@ export class DataService {
         switch (type) {
             case 'product':
                 ownPropertyNames = Product.getProperties();
+                break;
+            case 'lobbeestore':
+                ownPropertyNames = LobbeeStore.getProperties();
                 break;
             case 'category':
                 ownPropertyNames = Category.getProperties();

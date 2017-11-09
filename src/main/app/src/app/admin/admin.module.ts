@@ -13,6 +13,7 @@ import {ProductComponent} from "./product.component";
 import {CrudComponent} from "./crud.component";
 import {AdminListComponent} from "./admin-list.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {RowGroupingComponent} from "./rowgrouping.component";
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     /**
      * Components / Directives/ Pipes
      */
-    AdminComponent, ProductComponent, CrudComponent, AdminListComponent
+    AdminComponent, ProductComponent, CrudComponent, AdminListComponent, RowGroupingComponent
   ],
   imports: [
     SharedModule,

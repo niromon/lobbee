@@ -1,7 +1,11 @@
 export class LobbeeStore {
     id: number;
     name: string;
-    rate: number
+    rate: number;
+
+    public static  getProperties() {
+        return ['id', 'name', 'rate'];
+    }
 }
 export class Product {
     id: number;

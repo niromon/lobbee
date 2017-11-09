@@ -8,6 +8,5 @@ export const ROUTES: Routes = [
     { path: 'search/:id', component: SearchComponent },
     { path: 'supply-detail', loadChildren: './supply-detail#SupplyDetailModule'},
     { path: 'home',  component: HomeComponent },
-    { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
     { path: '**',    component: NoContentComponent },
 ];

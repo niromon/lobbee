@@ -23,7 +23,7 @@ export function reducer(data: DataService): Reducer<State, ActionValue> {
             case Action.ADD_PRODUCT:
                 return {
                     ...state,
-                    products: [...state.products, {id: 0, name: action.value, category: new Category()}]
+                    products: [...state.products, action.value]
                 };
             case Action.TOOGLE_FILTER:
                 state.filters[action.value.filter] = action.value.value;

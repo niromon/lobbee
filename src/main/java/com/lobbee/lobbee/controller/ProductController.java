@@ -25,7 +25,7 @@ class ProductController {
 	@PostMapping("/add")
 	ResponseEntity<?> add(@RequestBody ProductDto product) {
         Product entity = Product.fromDto(product, categoryRepository);
-        Product saved = this.productRepository.save(entity);
+		Product saved = this.productRepository.save(entity);
         return ResponseEntity.ok(saved);
 	}
 
