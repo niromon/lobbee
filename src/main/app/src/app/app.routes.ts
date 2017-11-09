@@ -7,6 +7,7 @@ export const ROUTES: Routes = [
     { path: '',      component: SearchComponent },
     { path: 'search/:id', component: SearchComponent },
     { path: 'supply-detail', loadChildren: './supply-detail#SupplyDetailModule'},
+    { path: 'admin', loadChildren: './admin#AdminModule'},
     { path: 'home',  component: HomeComponent },
     { path: '**',    component: NoContentComponent },
 ];

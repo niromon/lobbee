@@ -15,7 +15,7 @@ import * as _ from 'lodash';
 })
 export class CategoryComponent implements OnInit {
 
-    public localState = { value: undefined, placeholder: 'Ajouter un produit'}
+    public localState = { value: undefined, placeholder: "Ajouter un produit"}
     @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
 
     protected searchStr: string;

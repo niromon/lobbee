@@ -5,7 +5,7 @@ import {Category, LobbeeStore, Product, Query, Result} from "../models";
 import {Observable} from "rxjs/Observable";
 import * as _ from 'lodash';
 
-const baseUrl = 'http://localhost:8080/';
+const baseUrl = API_URL;
 const baseApiUrl = baseUrl + 'api/';
 
 @Injectable()
@@ -19,11 +19,9 @@ export class DataService {
     }
 
     public loadAsyncResults(query: Query) : Observable<Result[]> {
-        let assets : Observable<Result[]> = this.http.get('/assets/mock-data/results.json').map((res: Result[]) => res);
-        return assets.map(rs => {
-            rs.forEach(r => (<Result>r).products = query.products.map(p => ({product: p, rate: 3, price: 4})));
-            return rs;
-        });
+        let res : Observable<Result[]> = this.http.post(baseUrl + 'search/supply', query)
+            .map((res: Result[]) => res);
+        return res;
     }
 
     public findAll(type: string) {

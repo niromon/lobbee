@@ -47,5 +47,5 @@ export class Result {
 }
 
 export class Query {
-    products: Product[];
+    productIds: number[];
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Action, ActionValue, State} from "../reducer";
 import {Store} from "../store";
 import {ActivatedRoute} from "@angular/router";
+import * as _ from 'lodash';
 
 @Component({
     selector: 'search',
@@ -27,7 +28,7 @@ export class SearchComponent implements OnInit {
     search(): void {
         this.store.sendAction({
             type: Action.SHOW_RESULTS,
-            value: {products : this.store.state.products}
+            value: {productIds : _.map(this.store.state.products, p => p.id)}
         });
     }
 
