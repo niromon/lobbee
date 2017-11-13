@@ -3,6 +3,7 @@
         <ng2-completer name="productName"
                        [(ngModel)]="searchStr"
                        [datasource]="productSource"
+                       [clearUnselected]="true"
                        [minSearchLength]="0"
                        [placeholder]="localState.placeholder"
                        (selected)="onSelected($event)">

@@ -3,6 +3,7 @@ import {DataService} from "./data/data.service";
 import {Observable} from "rxjs";
 import {Reducer, Store} from "./store";
 import {Category, Product, Result} from "./models";
+import * as _ from 'lodash';
 // import Map = require("core-js/es6/map");
 
 export type State = { products: Product[], filters: {[key: string]: boolean}, results: Result[]};
@@ -21,10 +22,13 @@ export function reducer(data: DataService): Reducer<State, ActionValue> {
     return (store: Store<State, ActionValue>, state: State, action: ActionValue): State|Observable<State> => {
         switch (action.type) {
             case Action.ADD_PRODUCT:
-                return {
-                    ...state,
-                    products: [...state.products, action.value]
-                };
+                if(_.find(state.products, action.value))
+                    return state;
+                else
+                    return {
+                        ...state,
+                        products: [...state.products, action.value]
+                    };
             case Action.TOOGLE_FILTER:
                 state.filters[action.value.filter] = action.value.value;
                 return { ...state, filters: state.filters };
