@@ -14,6 +14,8 @@ import {CrudComponent} from "./crud.component";
 import {AdminListComponent} from "./admin-list.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RowGroupingComponent} from "./rowgrouping.component";
+import {UploadComponent} from "./upload.component";
+import {FormUploadComponent} from "./form-upload.component";
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import {RowGroupingComponent} from "./rowgrouping.component";
     /**
      * Components / Directives/ Pipes
      */
-    AdminComponent, ProductComponent, CrudComponent, AdminListComponent, RowGroupingComponent
+    AdminComponent, ProductComponent, CrudComponent, AdminListComponent, RowGroupingComponent, FormUploadComponent
   ],
   imports: [
     SharedModule,

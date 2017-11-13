@@ -1,0 +1,17 @@
+{
+  "stores": [
+    {"name": "Magasin A", "rate": 5},
+    {"name": "Magasin B", "rate": 4}
+  ],
+  "categories": [{"name": "Alimentation"}],
+  "products": [
+    {"name": "Yahourt", "category": "Alimentation", "rate": 3},
+    {"name": "Tomates", "category": "Alimentation", "rate": 4.5}
+  ],
+  "stocks": [
+    {"storeName": "Magasin A", "productName": "Yahourt", "price": 8.0},
+    {"storeName": "Magasin A", "productName": "Tomates", "price": 10.0},
+    {"storeName": "Magasin B", "productName": "Yahourt", "price": 7.0},
+    {"storeName": "Magasin B", "productName": "Tomates", "price": 9.0}
+  ]
+}

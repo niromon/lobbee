@@ -4,7 +4,7 @@ import com.lobbee.lobbee.domain.product.Product;
 import com.lobbee.lobbee.domain.product.repository.ProductRepository;
 import com.lobbee.lobbee.domain.store.LobbeeStore;
 import com.lobbee.lobbee.domain.store.LobbeeStoreStock;
-import com.lobbee.lobbee.domain.store.StoreProductDto;
+import com.lobbee.lobbee.domain.store.LobbeeStoreStockDto;
 import com.lobbee.lobbee.domain.store.repository.LobbeeStoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ class StoreController {
 
 	@PostMapping("/add")
 	@Transactional
-	ResponseEntity<?> add(@RequestBody StoreProductDto storeProduct) {
+	ResponseEntity<?> add(@RequestBody LobbeeStoreStockDto storeProduct) {
 		LobbeeStore store = storeRepository.findOne(storeProduct.getStoreId());
 		Product product = productRepository.findOne(storeProduct.getProductId());
 //		store.getProducts().add(product);

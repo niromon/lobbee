@@ -1,5 +1,5 @@
-INSERT INTO lobbee_store (storeid, name) VALUES (1, 'Carreouf');
-INSERT INTO lobbee_store (storeid, name) VALUES (2, 'Auchan');
+INSERT INTO lobbee_store (storeid, name, rate) VALUES (1, 'Carreouf', 4);
+INSERT INTO lobbee_store (storeid, name, rate) VALUES (2, 'Auchan', 3.5);
 
 INSERT INTO category (categoryid, name) VALUES (1, 'laitage');
 

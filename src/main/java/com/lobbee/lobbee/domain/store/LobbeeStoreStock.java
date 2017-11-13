@@ -1,6 +1,8 @@
 package com.lobbee.lobbee.domain.store;
 
 import com.lobbee.lobbee.domain.product.Product;
+import com.lobbee.lobbee.domain.product.repository.ProductRepository;
+import com.lobbee.lobbee.domain.store.repository.LobbeeStoreRepository;
 import lombok.*;
 
 import javax.persistence.*;
@@ -30,33 +32,23 @@ public class LobbeeStoreStock {
     @NonNull
     private Double price;
 
-    public boolean equals(Object o) {
-        if (o == this) return true;
-        if (!(o instanceof LobbeeStoreStock)) return false;
-        final LobbeeStoreStock other = (LobbeeStoreStock) o;
-        if (!other.canEqual((Object) this)) return false;
-        final Object this$id = this.getId();
-        final Object other$id = other.getId();
-        if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
-        return true;
-    }
-
-    public int hashCode() {
-        final int PRIME = 59;
-        int result = 1;
-        final Object $id = this.getId();
-        result = result * PRIME + ($id == null ? 43 : $id.hashCode());
-        return result;
-    }
-
-    protected boolean canEqual(Object other) {
-        return other instanceof LobbeeStoreStock;
-    }
-
-	/*public static Store fromDto(ProductDto product, CategoryRepository categoryRepository) {
-		return new Store(
-		        product.getId(), product.getName(),
-                product.getCategoryId() == null ? null : categoryRepository.findOne(product.getCategoryId())
+	public static LobbeeStoreStock fromDto(LobbeeStoreStockDto sp,
+                                        LobbeeStoreRepository storeRepository,
+                                        ProductRepository productRepository) {
+		return new LobbeeStoreStock(
+            storeRepository.findOne(sp.getStoreId()),
+            productRepository.findOne(sp.getProductId()),
+            sp.getPrice()
 		);
-	}*/
+	}
+
+	public static LobbeeStoreStock fromJsonDto(LobbeeStoreStockJsonDto sp,
+                                        LobbeeStoreRepository storeRepository,
+                                        ProductRepository productRepository) {
+		return new LobbeeStoreStock(
+            storeRepository.findByName(sp.getStoreName()),
+            productRepository.findByName(sp.getProductName()),
+            sp.getPrice()
+		);
+	}
 }

@@ -7,4 +7,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
 @RepositoryRestResource(collectionResourceRel = "category", path = "category")
-public interface CategoryRepository extends PagingAndSortingRepository<Category, Long> {}
+public interface CategoryRepository extends PagingAndSortingRepository<Category, Long> {
+    Category findByName(String name);
+}

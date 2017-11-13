@@ -17,7 +17,7 @@ export class RatingComponent implements OnInit {
 
     ngOnInit(): void {
         this.fullStars = _.range(Math.floor(this.stars));
-        this.isHalfStar = _.isInteger(this.stars);
+        this.isHalfStar = !_.isInteger(this.stars);
     }
 
 }

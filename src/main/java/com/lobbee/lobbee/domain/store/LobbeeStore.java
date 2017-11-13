@@ -1,8 +1,6 @@
 package com.lobbee.lobbee.domain.store;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,8 +11,9 @@ import static javax.persistence.GenerationType.AUTO;
 
 @Entity
 @Data
-@AllArgsConstructor
+@RequiredArgsConstructor(staticName = "of")
 @NoArgsConstructor
+@EqualsAndHashCode(of="id")
 public class LobbeeStore {
 
 	@Id
@@ -23,15 +22,21 @@ public class LobbeeStore {
 	private Long id;
 
 	@Column(name = "name")
-	private String name;
+    @NonNull
+    private String name;
 
 	@Column(name = "rate")
-	private Double rate;
+    @NonNull
+    private Double rate;
 
 	@OneToMany(fetch = EAGER, mappedBy = "store")
 	private Set<LobbeeStoreStock> stocks = new HashSet<>();
 
 	public StoreDto toDto() {
 		return new StoreDto(this.getId(), this.getName(), this.getRate());
+	}
+
+	public static LobbeeStore fromDto(StoreDto storeDto) {
+        return LobbeeStore.of(storeDto.getName(), storeDto.getRate());
 	}
 }

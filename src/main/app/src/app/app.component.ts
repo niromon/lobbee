@@ -2,9 +2,9 @@
  * Angular 2 decorators and services
  */
 import {
-  Component,
-  OnInit,
-  ViewEncapsulation
+    Component,
+    OnInit,
+    ViewEncapsulation
 } from '@angular/core';
 import { Store } from './store';
 import {ActionValue, State} from "./reducer";
@@ -14,40 +14,57 @@ import {ActionValue, State} from "./reducer";
  * Top Level Component
  */
 @Component({
-  selector: 'app',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
-  template: `
-    <nav>
-      <a [routerLink]=" ['./'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
-      </a>
-    </nav>
+    selector: 'app',
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: [
+        './app.component.css'
+    ],
+    template: `
 
-    <main>
-      <router-outlet></router-outlet>
-    </main>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container">
 
-    <footer>
-        <pre class="app-state">this.appState.state = {{ store.state | json }}</pre>
-    </footer>
-  `
+                <a id="logo-container" class="brand-logo" [routerLink]=" ['./'] "
+                   routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+                    Lobbee
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a [routerLink]=" ['./home'] "
+                           routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+                            Ma liste de courses
+                        </a>
+                    </li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li>
+                        <a [routerLink]=" ['./home'] "
+                           routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+                            Ma liste de courses
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+
+        <footer>
+            <pre class="app-state">this.appState.state = {{ store.state | json }}</pre>
+        </footer>
+    `
 })
 export class AppComponent implements OnInit {
 
-  constructor(
-    public store: Store<State, ActionValue>
-  ) {}
+    constructor(
+        public store: Store<State, ActionValue>
+    ) {}
 
-  public ngOnInit() {
-    console.log('Initial App State', this.store.state);
-  }
+    public ngOnInit() {
+        console.log('Initial App State', this.store.state);
+    }
 
 }
