@@ -1,11 +1,10 @@
-package com.lobbee.lobbee.domain.product;
+package com.lobbee.lobbee.domain.store;
 
 import lombok.Value;
 
 @Value
-public class ProductDto {
+public class StoreDto {
     private Long id;
     private String name;
     private Double rate;
-    private Long categoryId;
 }

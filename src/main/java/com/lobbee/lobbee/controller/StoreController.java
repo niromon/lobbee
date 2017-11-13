@@ -3,6 +3,7 @@ package com.lobbee.lobbee.controller;
 import com.lobbee.lobbee.domain.product.Product;
 import com.lobbee.lobbee.domain.product.repository.ProductRepository;
 import com.lobbee.lobbee.domain.store.LobbeeStore;
+import com.lobbee.lobbee.domain.store.LobbeeStoreStock;
 import com.lobbee.lobbee.domain.store.StoreProductDto;
 import com.lobbee.lobbee.domain.store.repository.LobbeeStoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ class StoreController {
 	ResponseEntity<?> add(@RequestBody StoreProductDto storeProduct) {
 		LobbeeStore store = storeRepository.findOne(storeProduct.getStoreId());
 		Product product = productRepository.findOne(storeProduct.getProductId());
-		store.getProducts().add(product);
+//		store.getProducts().add(product);
+		store.getStocks().add(LobbeeStoreStock.of(store, product, 10.0));
         return ResponseEntity.ok(store);
 	}
 

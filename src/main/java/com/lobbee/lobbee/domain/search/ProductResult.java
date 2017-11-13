@@ -8,6 +8,6 @@ import lombok.Value;
 @Builder
 public class ProductResult {
     private Product product;
-    private Integer rate;
+    private Double rate;
     private Double price;
 }

@@ -6,6 +6,6 @@ import lombok.Value;
 @Value
 @Builder
 public class SummaryResult {
-    private Integer rate;
+    private Double rate;
     private Double price;
 }

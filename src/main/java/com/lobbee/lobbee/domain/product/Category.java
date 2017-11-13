@@ -1,6 +1,7 @@
 package com.lobbee.lobbee.domain.product;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -8,6 +9,7 @@ import static javax.persistence.GenerationType.*;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Category {
 
 	@Id
