@@ -2,9 +2,8 @@ import {WatchService} from "./watch";
 import {DataService} from "./data/data.service";
 import {Observable} from "rxjs";
 import {Reducer, Store} from "./store";
-import {Category, Product, Result} from "./models";
+import {Product, Result} from "./models";
 import * as _ from 'lodash';
-// import Map = require("core-js/es6/map");
 
 export type State = { products: Product[], filters: {[key: string]: boolean}, results: Result[]};
 

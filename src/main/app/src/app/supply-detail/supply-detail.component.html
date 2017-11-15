@@ -6,17 +6,16 @@
           <rating [stars]="result.store.rate"></rating>
         </p>
         <div class="grey-text text-darken-2">
-            <table>
-                <tbody>
-                <tr *ngFor="let product of result.products">
-                    <td>{{product.product.name}}</td>
-                    <td>
+            <ul>
+                <li *ngFor="let product of result.products">
+                    <span>{{product.product.name}}</span>
+                    <span>
                         <rating [stars]="product.rate"></rating>
-                    </td>
-                    <td>{{ product.price }} &euro;</td>
-                </tr>
-                </tbody>
-            </table>
+                    </span>
+                    <span>{{ product.price }} &euro;</span>
+                    <div><img src="assets/img/product.png" /></div>
+                </li>
+            </ul>
         </div>
         <div class="blue-text">
             <ul>

@@ -32,6 +32,8 @@ import {LocationComponent} from "./search/location.component";
 import {SharedModule} from "./common/shared.module";
 import {AdminModule} from "./admin";
 import {MaterializeModule} from "ng2-materialize";
+import {CustomerInfoComponent} from "./customer-info/customer-info.component";
+import {CustomerInfoModule} from "./customer-info/customer-info.module";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -67,6 +69,7 @@ type StoreType = {
      */
     imports: [
         AdminModule,
+        CustomerInfoModule,
         SharedModule,
         BrowserModule,
         MaterializeModule.forRoot(),

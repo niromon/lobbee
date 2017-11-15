@@ -20,27 +20,35 @@ import {ActionValue, State} from "./reducer";
         './app.component.css'
     ],
     template: `
-
         <nav class="light-blue lighten-1" role="navigation">
             <div class="nav-wrapper container">
 
-                <a id="logo-container" class="brand-logo" [routerLink]=" ['./'] "
-                   routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-                    Lobbee
-                </a>
+                <a id="logo-container" class="brand-logo" [routerLink]=" ['./'] ">Lobbee</a>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <a [routerLink]=" ['./home'] "
+                        <a [routerLink]=" ['./'] "
                            routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
                             Ma liste de courses
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]=" ['/customer-info'] "
+                           routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+                            Info Consommateur
                         </a>
                     </li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li>
-                        <a [routerLink]=" ['./home'] "
+                        <a [routerLink]=" ['./'] "
                            routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
                             Ma liste de courses
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]=" ['/customer-info'] "
+                           routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+                            Info Consommateur
                         </a>
                     </li>
                 </ul>
@@ -49,7 +57,9 @@ import {ActionValue, State} from "./reducer";
         </nav>
 
         <main>
-            <router-outlet></router-outlet>
+            <div class="container">
+                <router-outlet></router-outlet>
+            </div>
         </main>
 
         <footer>

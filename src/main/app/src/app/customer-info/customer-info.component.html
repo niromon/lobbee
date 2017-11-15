@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col s12 m3">
+        <mz-collection>
+            <mz-collection-item>
+                Infos produits
+                <a [routerLink]=" ['/customer-info/product'] "
+                   routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}"class="secondary-content">
+                    <i class="material-icons">send</i>
+                </a>
+            </mz-collection-item>
+        </mz-collection>
+    </div>
+    <div class="col s12 m9">
+        <router-outlet></router-outlet>
+    </div>
+</div>
