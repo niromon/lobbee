@@ -2,15 +2,16 @@ package com.lobbee.lobbee.controller;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterables;
+import com.lobbee.lobbee.domain.product.Product;
 import com.lobbee.lobbee.domain.product.repository.ProductRepository;
-import com.lobbee.lobbee.domain.search.ProductResult;
-import com.lobbee.lobbee.domain.search.SummaryResult;
-import com.lobbee.lobbee.domain.search.SupplyQuery;
-import com.lobbee.lobbee.domain.search.SupplyResult;
+import com.lobbee.lobbee.domain.search.*;
 import com.lobbee.lobbee.domain.store.LobbeeStore;
 import com.lobbee.lobbee.domain.store.LobbeeStoreStock;
 import com.lobbee.lobbee.domain.store.repository.LobbeeStoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -76,6 +77,16 @@ class SearchController {
         ).collect(Collectors.toList());
 
         return ResponseEntity.ok(results);
+    }
+
+    @PostMapping("/product")
+    @Transactional
+    ResponseEntity<?> searchProduct(@RequestBody ProductQuery query) {
+        Page<Product> products = productRepository.findByNameContaining(query.getName(), new PageRequest(0, 20));
+        if (Iterables.isEmpty(products.getContent())) {
+            return ResponseEntity.ok(newArrayList());
+        }
+        return ResponseEntity.ok(products.getContent().stream().map(Product::toDto).collect(Collectors.toSet()));
     }
 
     private Stream<LobbeeStoreStock> getStocks(@RequestBody SupplyQuery query, LobbeeStore store) {

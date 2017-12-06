@@ -10,11 +10,17 @@ export class LobbeeStore {
 export class Product {
     id: number;
     name: string;
+}
+
+export class ProductEager extends Product {
     category: Category;
 
     public static  getProperties() {
         return ['id', 'name', 'category'];
     }
+}
+export class ProductLazy extends Product {
+    categoryId: number;
 }
 export class Filter {
     name: string;
@@ -46,6 +52,11 @@ export class Result {
     summary: SummaryResult
 }
 
-export class Query {
+export class SupplyQuery {
     productIds: number[];
+}
+
+export class ProductQuery {
+    name: string;
+    categoryId: number;
 }

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import {Category, LobbeeStore, Product, Query, Result} from "../models";
+import {Category, LobbeeStore, Product, SupplyQuery, Result, ProductLazy, ProductEager} from "../models";
 import {Observable} from "rxjs/Observable";
 import * as _ from 'lodash';
 
@@ -13,14 +13,20 @@ export class DataService {
 
     constructor(private http: HttpClient) {}
 
-    public loadAsyncProducts() : Observable<Product[]> {
+    public loadAsyncProducts() : Observable<ProductEager[]> {
         return this.http.get('/assets/mock-data/products.json')
-                        .map((res: Product[]) => res);
+                        .map((res: ProductEager[]) => res);
     }
 
-    public loadAsyncResults(query: Query) : Observable<Result[]> {
+    public loadAsyncResults(query: SupplyQuery) : Observable<Result[]> {
         let res : Observable<Result[]> = this.http.post(baseUrl + 'search/supply', query)
             .map((res: Result[]) => res);
+        return res;
+    }
+
+    public searchProducts(query: SupplyQuery) : Observable<ProductLazy> {
+        let res : Observable<ProductLazy> = this.http.post(baseUrl + 'search/product', query)
+            .flatMap((res: ProductLazy[]) => res);
         return res;
     }
 
@@ -38,7 +44,7 @@ export class DataService {
             });
     }
 
-    public findAllProductEager() : Observable<Product[]> {
+    public findAllProductEager() : Observable<ProductEager[]> {
         return this.http.get(baseApiUrl + 'product?projection=eager')
             .map((data: any) => {
                 return data._embedded['product'];
@@ -53,7 +59,7 @@ export class DataService {
         }
     }
 
-    public saveProduct(p: Product) {
+    public saveProduct(p: ProductEager) {
         if (_.isUndefined(p.id)) {
             return this.http.post(baseUrl + 'product/add', p);
         } else {
@@ -65,7 +71,7 @@ export class DataService {
         let ownPropertyNames = [];
         switch (type) {
             case 'product':
-                ownPropertyNames = Product.getProperties();
+                ownPropertyNames = ProductEager.getProperties();
                 break;
             case 'lobbeestore':
                 ownPropertyNames = LobbeeStore.getProperties();

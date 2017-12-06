@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {DataService} from "../data/data.service";
-import {Product} from "../models";
+import {Category, Product, ProductEager} from "../models";
+import * as _ from 'lodash';
 
 
 @Component({
@@ -9,7 +10,8 @@ import {Product} from "../models";
     templateUrl: 'product-info.component.html'
 })
 export class ProductInfoComponent implements OnInit {
-    private products: Product[] = [];
+    private products: ProductEager[] = [];
+    private categories: Category[] = [];
 
     constructor(
         public data: DataService
@@ -17,6 +19,18 @@ export class ProductInfoComponent implements OnInit {
 
     public ngOnInit() {
         this.data.findAll('product').subscribe(ps => this.products = ps);
+        this.data.findAll('category').subscribe(cs => this.categories = cs);
+    }
+
+    public searchProduct(query) {
+        console.log(query);
+        this.products = [];
+        this.data.searchProducts(query)
+            .map(p => {
+                const cat = _.find(this.categories, c => p.id === c.id);
+                return Object.assign({}, p, { category: cat });
+            })
+            .subscribe(p => this.products.push(p));
     }
 
 }

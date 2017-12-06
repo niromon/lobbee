@@ -1,3 +1,31 @@
+<div class="row">
+    <form #f="ngForm" (ngSubmit)="searchProduct(f.value)" novalidate class="col s12" >
+        <div class="row">
+            <mz-input-container class="col s12 m6">
+                <input mz-input
+                       [label]="'Name'"
+                       id="name" name="name" ngModel
+                       required
+                       placeholder="Enter your name"
+                       length="150"
+                       type="text">
+            </mz-input-container>
+            <mz-select-container class="col s12 m6">
+                <select mz-select
+                        [label]="'Categorie'"
+                        id="categoryId" name="categoryId" ngModel
+                        required
+                        placeholder="'Choisis ta catégorie'"
+                >
+                    <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+                </select>
+            </mz-select-container>
+        </div>
+        <div class="row">
+            <button mz-button>Chercher</button>
+        </div>
+    </form>
+</div>
 <div class="row" *ngFor="let product of products">
     <div class="col s12 m6">
         <h5>{{product.name}}</h5>
